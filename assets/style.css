@@ -34,6 +34,11 @@ flex-direction: row;
     --bs-btn-color: black; 
 }
 
+.btn:hover {
+    background-color: rgb(180, 185, 239);
+    border-color: rgba(255,0,0,0) ;
+}
+
 .cityAnd5Dayforecast{
     display: flex;
     flex-direction: column;
@@ -46,4 +51,9 @@ flex-direction: row;
     width: 100%;
     height: 180px;
     margin-top: 2%;
+}
+
+.searchHistoryItems{
+    display: flex;
+    flex-direction: column
 }
