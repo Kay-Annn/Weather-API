@@ -34,24 +34,37 @@ function displayWeather(weather) {
 }
 
 function fiveDayForecast(weather) {
-    var fiveDayForecastInfo = document.querySelector(".fiveDayForecast");
-    fiveDayForecast.innerHTML = ""
-    for (i = 1; i < weather.list.length; i++) {
-        var city = document.createElement("h2")
-        city.textContent = weather.city.name;
-        fiveDayForecastInfo.append(city);
+    var fiveDayForecastContainer = document.querySelector(".fiveDayForecastContainer");
+    fiveDayForecastContainer.innerHTML = ""
 
+    var fiveDayHeading = document.createElement("h2")
+    fiveDayHeading.textContent = ("5-Day Forecast:")
+    fiveDayForecastContainer.append(fiveDayHeading);
+
+    var fiveDayForecastInfo = document.createElement("div");
+    fiveDayForecastInfo.className="forecastBoxes"
+    fiveDayForecastContainer.append(fiveDayForecastInfo)
+
+    for (i = 1; i < weather.list.length; i++) { 
+
+        var divElement = document.createElement("div")
+        divElement.className = "fiveDayDiv"
+        fiveDayForecastInfo.append(divElement)
+        //creating temp info
         var temp = document.createElement("p");
         temp.textContent = ("Temp: " + weather.list[i].main.temp + "°" + "C")
-        fiveDayForecastInfo.append(temp);
+        divElement.appendChild(temp);
 
+        //creating wind info
         var wind = document.createElement("p");
         wind.textContent = ("Wind: " + weather.list[i].wind.speed + " MPH")
-        fiveDayForecastInfo.append(wind);
+        divElement.appendChild(wind);
 
+        //creating humidity info
         var hum = document.createElement("p");
         hum.textContent = ("Humidity: " + weather.list[i].main.humidity + "%")
-        fiveDayForecastInfo.append(hum);
+        divElement.appendChild(hum);
+        
     }
 }
 
@@ -60,13 +73,17 @@ function searchHistoryDisplay() {
     clearSearchItem.innerHTML = ""
     for (i = 0; i < localStorage.length; i++) {
         var searchHistoryInfo = document.querySelector(".searchHistoryItems")
-        var searchedItems = document.createElement("span")
+        var searchedItems = document.createElement("button")
         searchedItems.textContent = localStorage.getItem(localStorage.key(i))
         searchHistoryInfo.append(searchedItems)
+        searchedItems.addEventListener("click", searchedItemReload)
     }
 }
 
-
+function searchedItemReload(event){
+searchForm.value = event.target.innerHTML
+fetchWeather(event);
+}
 
 //add event listener on search button
 var searchBtn = document.querySelector(".btn")

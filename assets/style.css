@@ -57,3 +57,13 @@ flex-direction: row;
     display: flex;
     flex-direction: column
 }
+
+.forecastBoxes{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.fiveDayDiv{
+background-color: rgb(98, 108, 219);;
+}
