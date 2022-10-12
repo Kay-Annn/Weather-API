@@ -17,7 +17,8 @@ function displayWeather(weather) {
     var weatherDisplay = document.querySelector(".cityWeatherDisplay");
     weatherDisplay.innerHTML = ""
     var city = document.createElement("h2")
-    city.textContent = weather.city.name;
+    var today = moment().format('L');
+    city.textContent = weather.city.name + " (" + (today) + ")";
     weatherDisplay.append(city);
 
     var temp = document.createElement("p");
@@ -46,11 +47,18 @@ function fiveDayForecast(weather) {
     fiveDayForecastContainer.append(fiveDayForecastInfo)
 
     for (i = 1; i < weather.list.length; i++) { 
+       
 
         var divElement = document.createElement("div")
         divElement.className = "fiveDayDiv"
         fiveDayForecastInfo.append(divElement)
+
         //creating temp info
+        var date = document.createElement("p");
+        var today = moment().add(i, 'days').format('L'); 
+        date.textContent = (today);
+        divElement.appendChild(date);
+
         var temp = document.createElement("p");
         temp.textContent = ("Temp: " + weather.list[i].main.temp + "°" + "C")
         divElement.appendChild(temp);
