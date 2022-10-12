@@ -7,6 +7,7 @@ padding: 2%;
 width: 100%;
 }
 
+/*navigation bar text styling*/
 .navbar-text{
     text-align: center;
     font-size: 20px;
@@ -26,6 +27,7 @@ flex-direction: row;
     width: 25%;
 }
 
+/*class to style button*/
 .btn{
     width: 100%;
     border-color:rgba(255,0,0,0) ;
@@ -58,6 +60,7 @@ flex-direction: row;
     flex-direction: column
 }
 
+/*style to align boxes for five day forecast*/
 .forecastBoxes{
 display: flex;
 flex-direction: row;

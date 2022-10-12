@@ -2,6 +2,8 @@
 function preventFormReload(event) { event.preventDefault(); }
 searchHistoryDisplay()
 
+
+//function that calls the API
 function fetchWeather(event) {
     preventFormReload(event)
     var url = `https://api.openweathermap.org/data/2.5/forecast?q=${document.querySelector(".form-control").value}&cnt=6&units=metric&appid=457c6944073dbb74ae2aef7571a0fa10`;
@@ -13,6 +15,7 @@ function fetchWeather(event) {
     searchHistoryDisplay()
 }
 
+//function to display the weather
 function displayWeather(weather) {
     var weatherDisplay = document.querySelector(".cityWeatherDisplay");
     weatherDisplay.innerHTML = ""
@@ -89,6 +92,7 @@ function fiveDayForecast(weather) {
     }
 }
 
+//function to save searched cities and display them
 function searchHistoryDisplay() {
     var clearSearchItem = document.querySelector(".searchHistoryItems")
     clearSearchItem.innerHTML = ""
@@ -113,7 +117,3 @@ searchBtn.addEventListener("click", fetchWeather)
 var searchForm = document.querySelector(".form-control");
 var searchHistory = localStorage.getItem("searchHistory");
 
-//searchHistoryInfo.textContent=
-
-//var city = localStorage.getItem("city");
-//store search in local storage
