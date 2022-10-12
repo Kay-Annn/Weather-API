@@ -19,6 +19,12 @@ function displayWeather(weather) {
     var city = document.createElement("h2")
     var today = moment().format('L');
     city.textContent = weather.city.name + " (" + (today) + ")";
+    console.log(weather)
+    var iconCode = (weather.list[0].weather[0].icon);
+      var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+       var icon = document.createElement("img")
+       icon.src=iconUrl 
+        weatherDisplay.appendChild(icon)
     weatherDisplay.append(city);
 
     var temp = document.createElement("p");
@@ -53,12 +59,19 @@ function fiveDayForecast(weather) {
         divElement.className = "fiveDayDiv"
         fiveDayForecastInfo.append(divElement)
 
-        //creating temp info
+
         var date = document.createElement("p");
         var today = moment().add(i, 'days').format('L'); 
         date.textContent = (today);
         divElement.appendChild(date);
 
+        var iconCode = (weather.list[i].weather[0].icon) 
+        var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        var icon = document.createElement("img")
+        icon.src=iconUrl 
+        divElement.appendChild(icon)
+
+        //creating temp info
         var temp = document.createElement("p");
         temp.textContent = ("Temp: " + weather.list[i].main.temp + "°" + "C")
         divElement.appendChild(temp);
