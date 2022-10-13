@@ -11,7 +11,7 @@ I learned how to access an object in an API, more importantly, I learned how to 
 It is an easy and intuitive way to display the location of a city for present and future (5 days). 
 
 ## Deployed page
-Please check out my web app at the following link:
+Please check out my web app at the following link: https://kay-annn.github.io/Weather-API/
 
 ## Licence 
 The licence used for this is MIT
